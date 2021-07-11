@@ -18,8 +18,8 @@ public class Solution {
         int[] codeTwo = {1, 1, 1};
         System.out.println("For " + Arrays.toString(codeTwo) + " the answer should be 3: " + answer(codeTwo));
 
-        int[] codeThree = {7, 2, 9, 1};
-        System.out.println("For " + Arrays.toString(codeThree) + " the answer should be 1: " + answer(codeThree));
+        int[] codeThree = {1, 2, 1, 2, 1, 2};
+        System.out.println("For " + Arrays.toString(codeThree) + " the answer should be 12: " + answer(codeThree));
     }
 
     public static int answer (int[] code){
