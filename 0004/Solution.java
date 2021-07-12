@@ -1,5 +1,3 @@
-import static java.lang.Math.*;
-
 import java.util.Arrays;
 
 public class Solution {
@@ -19,44 +17,31 @@ public class Solution {
         System.out.println("For " + Arrays.toString(codeTwo) + " the answer should be 3: " + answer(codeTwo));
 
         int[] codeThree = {1, 2, 1, 2, 1, 2};
-        System.out.println("For " + Arrays.toString(codeThree) + " the answer should be 12: " + answer(codeThree));
+        System.out.println("For " + Arrays.toString(codeThree) + " the answer should be 13: " + answer(codeThree));
     }
 
     public static int answer (int[] code){
-        //start with one because all "single digit" number is a given possibility
-        int result = 1;
-
-        result += findCombinations(code);
-        return result;
+        return allCombinations(code, 0);
     }
 
-    private static double findCombinations(int[] array){
-        return findCombinationsStartingWithIndex(array, 0) + findCombinationsStartingWithIndex(array, 1);
-    }
-
-    /**
-     * Finds the number of all possible combinations in an array given that all numbers from 1 to 26 are valid.
-     * Example [1, 1, 1]: "1, 1, 1"; "11, 1" and "1, 11" are possible combinations because 11 is lower than 26, but "111" is higher than 26
-     * 
-     * @param array
-     * @param index
-     * @return
-     */
-    private static double findCombinationsStartingWithIndex (int[] array, int index){
-        //number of letters in the alphabet
+    private static int allCombinations(int[] code, int index){
         final int RANGE = 26;
-        int arrayLength = array.length;
-        int doubleDigitNumber = 0;
-
-        for (int i = index; i < arrayLength - 1; i++){
-            if ((array[i]*10 + array[i+1]) <= RANGE){
-                doubleDigitNumber ++;
-                //next integer is the unit of the double digit number
-                //so we pass to the next index
-                i ++; 
-            }
+        int result = 0;
+        int codeSize = code.length;
+        //base case
+        if (index >= codeSize){
+            return 1;
         }
-        return pow(2, doubleDigitNumber) - 1;
+        //first two digits give a number smaller than RANGE
+        if (index < (codeSize - 1) && ((code[index] * 10) + code[index + 1]) <= RANGE){
+            result += allCombinations(code, index + 2);
+        }
+        //second and third digits give a number smaller than RANGE
+        if (index < (codeSize - 2) && ((code[index + 1] * 10) + code[index + 2]) <= RANGE){
+            result += allCombinations(code, index + 3);
+        }  
+        //or jump two digits
+        return (result += allCombinations(code, index + 2));
     }
     
 }
