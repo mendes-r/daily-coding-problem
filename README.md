@@ -31,3 +31,9 @@ It will not be daily as the title assumes. Sorry for that!
 - Status: Done
 
 > Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the number of ways it can be decoded. For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'. You can assume that the messages are decodable. For example, '001' is not allowed.
+
+## Problem 0005
+
+- Status: Done, but...
+
+> Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed). ([])[]({}) is well formed. ([)] not well formed.
