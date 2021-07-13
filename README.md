@@ -37,3 +37,9 @@ It will not be daily as the title assumes. Sorry for that!
 - Status: Done, but...
 
 > Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed). ([])[]({}) is well formed. ([)] not well formed.
+
+## Problem 0006
+
+- Status: Working on it...
+
+> Given an array of time intervals (start, end) for classroom lectures (possibly overlapping), find the minimum number of rooms required. For example, given [(30, 75), (0, 50), (60, 150)], you should return 2.
