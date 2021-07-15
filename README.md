@@ -43,3 +43,11 @@ It will not be daily as the title assumes. Sorry for that!
 - Status: Done
 
 > Given an array of time intervals (start, end) for classroom lectures (possibly overlapping), find the minimum number of rooms required. For example, given [(30, 75), (0, 50), (60, 150)], you should return 2.
+
+## Problem 0007
+
+- Status: Working on it...
+
+> You are given an array of non-negative integers that represents a two-dimensional elevation map where each element is unit-width wall and the integer is the height. Suppose it will rain and all spots between two walls get filled up. 
+> Compute how many units of water remain trapped on the map in O(N) time and O(1) space.
+>For example, given the input [2, 1, 2], we can hold 1 unit of water in the middle.
