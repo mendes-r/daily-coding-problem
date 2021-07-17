@@ -53,5 +53,17 @@ public class ProblemSevenTest {
         //assert
         assertEquals(expected, result);
     }
+
+    @Test
+    public void testFive() {
+        //arrange
+        int[] array = {4, 0, 3, 2};
+        int expected = 3;
+        //act
+        ProblemSeven problemSeven = new ProblemSeven();
+        int result = problemSeven.answer(array);
+        //assert
+        assertEquals(expected, result);
+    }
     
 }
