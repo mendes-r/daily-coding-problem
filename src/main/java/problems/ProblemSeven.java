@@ -11,7 +11,28 @@ public class ProblemSeven {
      *
      * @return
      */
-    public int answer(){
-        return 0;
+    public int answer(int[] array){
+        int arraySize = array.length;
+        int result = 0;
+        int tempResult = 0;
+        int tempLevel = 0;
+        boolean flag = true;
+        for (int i = 0; i < arraySize - 1; i++){
+            if (flag) tempLevel = array[i];
+            int difference = tempLevel - array[i+1];
+            if(difference > 0){
+                //store result temporary
+                tempResult += difference;
+                //and maintain tempLevel
+                flag = false;
+            } else {
+                //a vessel is identified
+                //now we can store the result
+                result += tempResult;
+                tempResult = 0;
+                flag = true;  
+            }
+        } 
+        return result;
     }
 }
