@@ -14,25 +14,37 @@ public class ProblemSeven {
     public int answer(int[] array){
         int arraySize = array.length;
         int result = 0;
-        int tempResult = 0;
-        int tempLevel = 0;
-        boolean flag = true;
         for (int i = 0; i < arraySize - 1; i++){
-            if (flag) tempLevel = array[i];
-            int difference = tempLevel - array[i+1];
-            if(difference > 0){
-                //store result temporary
-                tempResult += difference;
-                //and maintain tempLevel
-                flag = false;
-            } else {
-                //a vessel is identified
-                //now we can store the result
-                result += tempResult;
-                tempResult = 0;
-                flag = true;  
+            int levelDrop = 0;
+            int oderMargin = -1;
+            while ((array[i] - levelDrop) > array[i+1] && oderMargin == -1) { 
+                oderMargin = findOderMargin(array, i, array[i] - levelDrop);
+                if (oderMargin > 0){
+                    result += getFilling(array, i, oderMargin, array[i] - levelDrop);
+                    i = oderMargin - 1; //Jump tp the next pond
+                }
+                levelDrop ++;
             }
         } 
         return result;
     }
+
+    private int getFilling(int[] array, int startIndex, int endIndex, int level){
+        int result = 0;
+        for (int i = startIndex + 1; i < endIndex; i++){
+            result += level - array[i];
+        }
+        return result;
+    }
+
+    private int findOderMargin(int[] array, int index, int level) {
+        int arraySize = array.length;
+        for (int i = index + 1; i < arraySize; i++){
+            if (array[i] >= level) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
 }
