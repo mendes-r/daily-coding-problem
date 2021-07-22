@@ -1,9 +1,4 @@
 public class ProblemEight {
-
-    public static void main(String[] args) {
-        ProblemEight problemEight = new ProblemEight();
-        System.out.println(problemEight.answer());
-    }
     
     /**
      * The area of a circle is defined as πr^2. 

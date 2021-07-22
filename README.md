@@ -48,7 +48,7 @@ It will not be daily as the title assumes. Sorry for that!
 
 - Status: Done
 
-> You are given an array of non-negative integers that represents a two-dimensional elevation map where each element is unit-width wall and the integer is the height. Suppose it will rain and all spots between two walls get filled up. 
+> You are given an array of non-negative integers that represents a two-dimensional elevation map where each element is unit-width wall and the integer is the height. Suppose it will rain and all spots between two walls get filled up.
 > Compute how many units of water remain trapped on the map in O(N) time and O(1) space.
 >For example, given the input [2, 1, 2], we can hold 1 unit of water in the middle.
 
@@ -58,3 +58,10 @@ It will not be daily as the title assumes. Sorry for that!
 
 > The area of a circle is defined as πr^2.
 > Estimate π to 3 decimal places using a Monte Carlo method.
+
+## Problem 0009
+
+- Status: Done
+
+> The power set of a set is the set of all its subsets.
+> Write a function that, given a set, generates its power set.
