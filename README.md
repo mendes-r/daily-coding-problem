@@ -65,3 +65,9 @@ It will not be daily as the title assumes. Sorry for that!
 
 > The power set of a set is the set of all its subsets.
 > Write a function that, given a set, generates its power set.
+
+## Problem 0010
+
+- Status: Done
+
+> Using a function rand5() that returns an integer from 1 to 5 (inclusive) with uniform probability, implement a function rand7() that returns an integer from 1 to 7 (inclusive).
