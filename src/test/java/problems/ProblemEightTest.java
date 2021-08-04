@@ -1,5 +1,6 @@
-import static org.junit.Assert.assertTrue;
+package problems;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class ProblemEightTest {

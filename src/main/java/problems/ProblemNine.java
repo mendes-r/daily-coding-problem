@@ -19,7 +19,7 @@ public class ProblemNine {
         ArrayList<ArrayList<Integer>> powerSet = new ArrayList<>();
         ArrayList<Integer> subSet = new ArrayList<>();
         powerSet.add(subSet);
-        return getPowerSet(set, powerSet, subSet, 0);;
+        return getPowerSet(set, powerSet, subSet, 0);
     }
 
     private ArrayList<ArrayList<Integer>> getPowerSet(int[] set, ArrayList<ArrayList<Integer>> powerSet, ArrayList<Integer> subSet, int index){
