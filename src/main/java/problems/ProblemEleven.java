@@ -1,19 +1,11 @@
 package problems;
 
 public class ProblemEleven {
-
-    public static void main(String[] args) {
-        int[][] liveCells = {{0,0}, {0,1}, {0,2}, {1,0}, {1,2}, {2,0}, {2,1}, {2,2}, {0,6}, {0,7}, {0,8}, {1,6}, {1,8}, {2,6}, {2,7}, {2,8}};
-        int steps = 4;
-        ProblemEleven problemEleven = new ProblemEleven();
-        problemEleven.conwayGame(liveCells, steps);
-    }
     
     /**
      * Implement Conway's Game of Life.
      * It should be able to be initialized with a starting list of live cell coordinates and the number of steps it should run for. 
-     * Once initialized, it should print out the board state at each step. Since it's an infinite board, print out only the relevant coordinates, 
-     * i.e. from the top-leftmost live cell to bottom-rightmost live cell.
+     * Once initialized, it should print out the board state at each step. Since it's an infinite board, print out only the relevant coordinates.
      * 
      * @param liveCells location of the living cells in the matrix
      * @param steps number of steps
@@ -43,22 +35,15 @@ public class ProblemEleven {
         return matrix;
     }
 
-    private int[][] addToMatrix(int[][] matrix, int[] array){
-        int[][] newMatrix = new int[matrix.length + 1][2];
-        for(int i = 0; i < matrix.length; i++){
-            newMatrix[i] = matrix[i];
-        }
-        newMatrix[matrix.length] = array;
-        return newMatrix;
-    }
-
     private int neighbors(boolean[][] neighborhood, int row, int column){
         int numberOfNeighbors = 0;
 
         for(int i = row - 1; i <= row + 1; i++){
             for(int j = column - 1; j <= column + 1; j++){
                 try {
-                    if(neighborhood[i][j] && (i != row && j != column)) numberOfNeighbors ++;
+                    if(neighborhood[i][j] && ((i != row) || (j != column))) {
+                        numberOfNeighbors ++;
+                    } 
                 } catch (ArrayIndexOutOfBoundsException exception) {
                     exception.getMessage();
                 }
@@ -86,13 +71,14 @@ public class ProblemEleven {
        
         int height = maxHeight - minHeight + 1;
         int width = maxWidth - minWidth + 1;
+        int margin = 1;
 
-         //all values by default are false
-        boolean[][] matrix = new boolean[height][width];
+        //all values by default are false
+        boolean[][] matrix = new boolean[height + 2 * margin][width + 2 * margin];
 
         //populate matrix
         for(int j = 0; j < numberOfLiveCells; j++){
-            matrix[liveCells[j][0] - minHeight][liveCells[j][1] - minWidth] = true;
+            matrix[liveCells[j][0] - minHeight + margin][liveCells[j][1] - minWidth + margin] = true;
         }
 
         return matrix;
@@ -113,10 +99,21 @@ public class ProblemEleven {
     }
 
     private boolean isAliveAndHasTwoOrThreeNeighbors(boolean[][] neighborhood, int row, int column){
-        return (neighborhood[row][column] && (neighbors(neighborhood, row, column) == 2 || neighbors(neighborhood, row, column) == 3));
+        boolean result = (neighborhood[row][column] && (neighbors(neighborhood, row, column) == 2 || neighbors(neighborhood, row, column) == 3));
+        return result;
     }
 
     private boolean isDeadButHasThreeNeighbors(boolean[][] neighborhood, int row, int column){
-        return (!neighborhood[row][column] && (neighbors(neighborhood, row, column) == 3));
+        boolean result = (!neighborhood[row][column] && (neighbors(neighborhood, row, column) == 3));
+        return result;
+    }
+
+    private int[][] addToMatrix(int[][] matrix, int[] array){
+        int[][] newMatrix = new int[matrix.length + 1][2];
+        for(int i = 0; i < matrix.length; i++){
+            newMatrix[i] = matrix[i];
+        }
+        newMatrix[matrix.length] = array;
+        return newMatrix;
     }
 }
