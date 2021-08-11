@@ -35,8 +35,8 @@ public class ProblemTwelve {
                 if((i - start) <= k){
                     end = i;
                 }else {
-                    // if the word as more letters than k, we return a null
-                    if((end - start) <= 0) return null;
+                    // if the word has more letters than k, we return a null
+                    if((end - start) < 0) return null;
                     result.add(String.copyValueOf(array, start, end - start));
                     start = end + 1;
                 }
@@ -44,7 +44,7 @@ public class ProblemTwelve {
         }
 
         // save last possible sub-strings
-        if((end - start) <= 0) return null;
+        if((end - start) < 0) return null;
         result.add(String.copyValueOf(array, start, end - start));
         start = end + 1;
         end = arrayLength;
