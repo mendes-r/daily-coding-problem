@@ -74,6 +74,12 @@ It will not be daily as the title assumes. Sorry for that!
 
 ## Problem 0011
 
-- Status: Working on it
+- Status: Done
 
 > Implement Conway's Game of Life.
+
+## Problem 0012
+
+- Status: Work in progress
+  
+  > Given a string s and an integer k, break up the string into multiple lines such that each line has a length of k or less. You must break it up so that words don't break across lines. Each line has to have the maximum possible amount of words. If there's no way to break the text up, then return null.
