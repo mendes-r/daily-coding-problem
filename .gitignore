@@ -33,3 +33,7 @@ hs_err_pid*
 
 # Macos
 .DS_Store
+
+# binary
+bin/
+*/bin/*
